@@ -1,0 +1,1 @@
+var titleInput = document.querySelector('.title-input')

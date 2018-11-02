@@ -1,0 +1,136 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.top-half {
+  background-color: #3E2A35;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.foto-finder-header {
+  color: white;
+  font-family: sans-serif;
+  margin-left: 21px;
+  font-size: 2.5rem;
+}
+
+.search-forms {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 130px;
+  margin: auto;
+}
+
+.top-half {
+  width: 100%;
+}
+
+.all-top-btns{
+  text-align: center;
+}
+
+.foto-finder-logo{
+ height:40px;
+ width: 40px;
+ }
+
+ .inputs {
+  height: 200px;
+ }
+
+ .choose-file-btn {
+  width: 40%;
+  margin-bottom: 50px;
+ }
+
+ .view-favorites-btn {
+  width: 20%
+ }
+
+ .card-pic{
+  background-image: url(Images/waterfall.jpeg);
+ }
+
+ .add-to-favorites-btn {
+  width: 20%;
+ }
+
+.lower-half {
+  background-color: #C2B2B4;
+  height: 100vh;
+}
+
+.card-text{
+  font-size: 1.3rem;
+  padding-left: 17px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.card-title {
+  padding-left: 17px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.card {
+  flex:1 1 auto;
+  background-color: white;
+  width: 300px;
+  margin-left: 30px;
+}
+
+.card-container {
+  padding-top: 40px;
+}
+
+.image {
+  display: flex;
+  justify-content: space-between;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.icon {
+  height: 35px;
+  width: 35px;
+}
+
+.icon-section {
+  background-color: #3E2A35;
+  display: flex;
+  justify-content: space-between;
+  height: 55px;
+}
+
+.delete-icon {
+  margin-left: 10px;
+  margin-top: 9px;
+}
+
+.favorite-icon {
+  margin-right: 10px;
+  margin-top: 9px;
+}
+
+.search-bar {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
