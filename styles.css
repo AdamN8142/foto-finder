@@ -24,12 +24,15 @@
   display: flex;
   flex-direction: column;
   width: 40%;
-  height: 130px;
   margin: auto;
 }
 
 .top-half {
   width: 100%;
+}
+
+.title-input{
+  height: 100px;
 }
 
 .all-top-btns{
@@ -42,10 +45,6 @@
  width: 40px;
  }
 
- .inputs {
-  height: 200px;
- }
-
  .choose-file-btn {
   width: 40%;
   margin-bottom: 50px;
@@ -56,6 +55,10 @@
  .view-favorites-btn {
   width: 20%;
   height:35px;
+  color: white;
+  background-color: #5B4447;
+  border-style: none;
+  font-size: 15px;
  }
 
 
@@ -63,6 +66,10 @@
  .add-to-album-btn {
   width: 20%;
   height:35px;
+  font-size: 15px;
+  background-color: #5B4447;
+  color:white;
+  border-style: none;
  }
 
 .lower-half {
@@ -131,9 +138,12 @@
 
 .delete-icon {
   background-image:url(Images/delete.svg);
+  background-repeat: no-repeat;
   border-style: none;
   margin-left: 10px;
   margin-top: 9px;
+  background-color: #3E2A35;
+  outline: 0;
 }
 
 .favorite-icon {
@@ -141,6 +151,9 @@
   border-style: none;
   margin-right: 10px;
   margin-top: 9px;
+  background-repeat: no-repeat;
+  background-color: #3E2A35;
+  outline: 0;
 }
 
 .search-bar {

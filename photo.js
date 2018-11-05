@@ -1,7 +1,7 @@
 class Photo {
   
   constructor(id,file,title,caption,favorite){
-    this.id = Date.now()|| id; 
+    this.id = id ||Date.now();
     this.file = file;
     this.title = title;
     this.caption = caption;
@@ -10,8 +10,11 @@ class Photo {
   }
 
  
-  updatePhoto(){
-      
+    updatePhoto(title, caption, photosArray, index) {
+    this.title = title;
+    this.caption = caption;
+    photosArray.splice(index, 1, this)
+    this.saveToStorage(photosArray);
   }
 
   saveToStorage(photosArray, isNewCard){
