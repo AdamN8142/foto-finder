@@ -59,7 +59,19 @@ function addToPage(photo){
   cardContainer.prepend(cardContent);
 }
 
-
+function updateCard(event){
+  if(event.target.closest('.card')!==null){
+   event.target.onblur = function(event){
+      var id = parseInt(event.target.closest('.card').dataset.id) 
+      var title = document.querySelector(`.card[data-id="${id}"] .card-title`).innerText
+      var caption = document.querySelector(`.card[data-id="${id}"] .card-text`).innerText
+      var index = photosArray.findIndex(function(photo){
+          return photo.id === id
+        })  
+      photosArray[index].updatePhoto(title,caption,photosArray,index)
+    }
+  }
+}
 
 function removeCard(){
   if (event.target.classList.contains('delete-icon')) {
