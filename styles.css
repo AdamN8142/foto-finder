@@ -31,10 +31,6 @@
   width: 100%;
 }
 
-.title-input{
-  height: 100px;
-}
-
 .all-top-btns{
   text-align: center;
   padding-bottom: 23px;
@@ -160,6 +156,10 @@
   margin-top: 10px;
   margin-right: 10px;
   width: 20%;
+}
+
+.caption-input,.title-input {
+  height: 38px;
 }
 
 
