@@ -10,7 +10,7 @@ var cardContainer    = document.querySelector('.card-container')
 addToAlbumButton.addEventListener('click', createNewCard);
 cardContainer.addEventListener('click', removeCard);
 cardContainer.addEventListener('click', updateCard);
-
+searchInput.addEventListener('keyup',searchCards);
 
 
 var photosArray = [];
@@ -23,14 +23,17 @@ window.onload = function(){
 }
 
 function createNewCard(){
+  var reader = new FileReader();
+  var file = chooseFileBtn.files[0];
   var title = titleInput.value;
   var caption = captionInput.value;
-  var file = chooseFileBtn.files[0];
-  // the files[0] works the same way as .value, just for files
-  var photoUrl = URL.createObjectURL(file);
-  var photo = new Photo(Date.now(),photoUrl,title,caption);
-  photo.saveToStorage(photosArray,true)
-  addToPage(photo);
+  reader.readAsDataURL(file);
+  reader.onload = function(event){
+    var photoURL = event.target.result;
+    var photo = new Photo(Date.now(),photoURL,title,caption);
+    photo.saveToStorage(photosArray,true)
+    addToPage(photo);
+  }
   clearInputs();
 }
 
@@ -46,9 +49,9 @@ function addToPage(photo){
   cardContent.classList.add('card')
   cardContent.innerHTML =  
   `
-  <h3 class = 'card-title'contenteditable = true>${photo.title}</h3>
+  <h3 class = 'card-title card-info'contenteditable = true>${photo.title}</h3>
   <img src = '${photo.file}' class = 'image'>
-  <p class = 'card-text' contenteditable = true>${photo.caption}</p>
+  <p class = 'card-text card-info' contenteditable = true>${photo.caption}</p>
   <section class = 'bottom-of-card'>
   <div class = 'icon-section'>
   <button class = 'delete-icon icon'></button>
@@ -59,7 +62,19 @@ function addToPage(photo){
   cardContainer.prepend(cardContent);
 }
 
-
+function updateCard(event){
+  if(event.target.closest('.card')!==null){
+   event.target.onblur = function(event){
+      var id = parseInt(event.target.closest('.card').dataset.id) 
+      var title = document.querySelector(`.card[data-id="${id}"] .card-title`).innerText
+      var caption = document.querySelector(`.card[data-id="${id}"] .card-text`).innerText
+      var index = photosArray.findIndex(function(photo){
+          return photo.id === id
+        })  
+      photosArray[index].updatePhoto(title,caption,photosArray,index)
+    }
+  }
+}
 
 function removeCard(){
   if (event.target.classList.contains('delete-icon')) {
@@ -74,6 +89,35 @@ function removeCard(){
   } 
 }
 
+
+// function editFavorite(){
+//   if(event.target.classList.contains('.favorite-icon')){
+//     var selectedCard = event.target.closest('.card');
+//     var selectedCardId = selectedCard.dataset.name;
+//     var index = photosArray.findIndex(function(desiredCard)){
+//       return desiredCard.id == selectedCardId;
+//     }
+//   }
+// }
+
+
+
+function searchCards(event){
+  document.querySelector('.card-container').innerHTML ='';
+  photosArray.forEach(function(photo){
+    addToPage(photo);
+  });
+  var cardInfo = document.querySelectorAll('.card');
+  cardInfo.forEach(function(elem){
+    if(!elem.innerText.includes(event.target.value)){
+      elem.closest('.card').remove();
+
+    };
+
+  })
+}
+
+
 function loadFromLocal(){
   photosArray = JSON.parse(localStorage.getItem('allPhotos'));
   photosArray = photosArray.map(function(photo){
@@ -84,10 +128,6 @@ function loadFromLocal(){
   })
 }
 
-  // function addToLocalStorage(photo){
-//   var stringifiedObject = JSON.stringify(photo)
-//   photo.saveToStorage(stringifiedObject);
-// }
 
 
 
