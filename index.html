@@ -11,21 +11,18 @@
       <h1 class = 'foto-finder-header'>FOTO<img src="Images/foto-finder-logo.svg" class = 'foto-finder-logo'>FINDER</h1>
       <input class = 'search-bar' placeholder = 'Search 'type="text" name="">
     </div>
-    <section class = 'main-content'>
-      <form class = 'search-forms'>
+    <form class = 'form-content'>
         <label for= "title-input">Title</label>
         <input class = 'title-input' type="text">
         <label for= "caption-input">Caption</label>
         <input class = 'caption-input' type="text">
-      </form>
-      <section class = 'all-top-btns'>
-        <div>
-          <input type="file" class = 'choose-file-btn' accept = 'image/* 'name="choose-file">
-        </div>
+          <input type="file" class = 'input-file' accept = 'image/* 'name="choose-file">
+          <label for ='file'>Choose File</label>
+      <div class = 'favorites-and-add'>
         <button   class = 'view-favorites-btn toggle-button'>View Favorites</button>
         <button   class = 'add-to-album-btn'>Add to Album</button>
-      </section>
-    </section>
+      </div>
+    </form>
   </section>
   <section class = 'lower-half'>
     <section class = 'card-container'>
@@ -47,6 +44,5 @@
   </section>
   <script type="text/javascript" src = "photo.js"></script>
   <script type="text/javascript" src = "main.js"></script>
-
 </body>
 </html>

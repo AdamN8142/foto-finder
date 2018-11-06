@@ -21,20 +21,21 @@
   font-size: 2.5rem;
 }
 
-.search-forms {
+.favorites-and-add{
   display: flex;
-  flex-direction: column;
-  width: 40%;
-  margin: auto;
+  justify-content: space-between;
 }
 
 .top-half {
   width: 100%;
 }
 
-.all-top-btns{
-  text-align: center;
-  padding-bottom: 23px;
+.form-content{
+  display: flex;
+  flex-direction: column;
+  width: 68%;
+  margin:auto;
+
 }
 
 .foto-finder-logo{
@@ -42,12 +43,6 @@
  width: 40px;
  }
 
- .choose-file-btn {
-  width: 40%;
-  margin-bottom: 50px;
-  height:35px; 
-
- }
 
  .toggle-button  {
   width: 20%;
@@ -164,6 +159,23 @@
 
 .caption-input,.title-input {
   height: 38px;
+}
+
+.input-file{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.input-file + label {
+  margin-bottom: 50px;
+  height:38px; 
+  color: white;
+  background-color: #5B4447; 
+  text-align: center; 
 }
 
 
