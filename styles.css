@@ -2,6 +2,7 @@
   margin:0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 .top-half {
@@ -48,7 +49,7 @@
 
  }
 
- .view-favorites-btn {
+ .toggle-button  {
   width: 20%;
   height:35px;
   color: white;
@@ -156,6 +157,9 @@
   margin-top: 10px;
   margin-right: 10px;
   width: 20%;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 15px;
 }
 
 .caption-input,.title-input {
@@ -163,10 +167,18 @@
 }
 
 
+.more-less-toggle {
+  width: 20%;
+  height:35px;
+  color: white;
+  background-color: #5B4447;
+  border-style: none;
+  font-size: 15px;
+}
 
-
-
-
+.bottom-button{
+  text-align: center;
+}
 
 
 

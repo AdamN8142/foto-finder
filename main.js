@@ -5,13 +5,18 @@ var viewFavoritesBtn = document.querySelector('.view-favorites-btn')
 var addToAlbumButton = document.querySelector('.add-to-album-btn')
 var searchInput      = document.querySelector('.search-bar')
 var cardContainer    = document.querySelector('.card-container')
+var showFavsOrAll     = document.querySelector('.toggle-button')
+var moreOrLess        = document.querySelector('.more-less-toggle')
+var favoriteButton   = document.querySelector('.view-favorites-btn')
 
 
 addToAlbumButton.addEventListener('click', createNewCard);
 cardContainer.addEventListener('click', removeCard);
 cardContainer.addEventListener('click', updateCard);
 searchInput.addEventListener('keyup',searchCards);
-
+cardContainer.addEventListener('click', editFavorite);
+showFavsOrAll.addEventListener('click',favsOrAll)
+moreOrLess.addEventListener('click',toggleMoreLess)
 
 var photosArray = [];
 
@@ -21,6 +26,8 @@ window.onload = function(){
     loadFromLocal();
   }
 }
+
+
 
 function createNewCard(){
   var reader = new FileReader();
@@ -65,15 +72,16 @@ function addToPage(photo){
 function updateCard(event){
   if(event.target.closest('.card')!==null){
    event.target.onblur = function(event){
-      var id = parseInt(event.target.closest('.card').dataset.id) 
-      var title = document.querySelector(`.card[data-id="${id}"] .card-title`).innerText
-      var caption = document.querySelector(`.card[data-id="${id}"] .card-text`).innerText
-      var index = photosArray.findIndex(function(photo){
-          return photo.id === id
-        })  
-      photosArray[index].updatePhoto(title,caption,photosArray,index)
-    }
+    var id = parseInt(event.target.closest('.card').dataset.id) 
+    var title = document.querySelector(`.card[data-id="${id}"] .card-title`).innerText
+    var caption = document.querySelector(`.card[data-id="${id}"] .card-text`).innerText
+    var index = photosArray.findIndex(function(photo){
+      return photo.id === id
+    })  
+    var favorite = photosArray[index].favorite
+    photosArray[index].updatePhoto(title,caption,photosArray,index,favorite)
   }
+}
 }
 
 function removeCard(){
@@ -84,22 +92,105 @@ function removeCard(){
       return photo.id === photoID
     })
 
-    cardElement.remove();
     photosArray[index].deleteFromStorage(photosArray,index)
+    favoriteCounter();
+       
+    cardElement.remove();
   } 
 }
 
 
-// function editFavorite(){
-//   if(event.target.classList.contains('.favorite-icon')){
-//     var selectedCard = event.target.closest('.card');
-//     var selectedCardId = selectedCard.dataset.name;
-//     var index = photosArray.findIndex(function(desiredCard)){
-//       return desiredCard.id == selectedCardId;
-//     }
-//   }
-// }
+function editFavorite(event){
+  if(event.target.classList.contains('favorite-icon')){
+    console.log(event)
+    var selectedCard = event.target.closest('.card');
+    var selectedCardId = selectedCard.dataset.id;
+    console.log(selectedCardId);
+    var index = photosArray.findIndex(function(desiredCard){
+      return desiredCard.id == selectedCardId;
+    });
+    console.log(index)
+    photosArray[index].updatePhoto(photosArray[index].title, photosArray[index].caption,
+      photosArray, index, !photosArray[index].favorite);
+    changeOfHeart(photosArray[index])
+    favoriteCounter();
+  } 
+}
 
+function changeOfHeart(photo){
+ var id = photo.id
+ var favoriteIcon = document.querySelector(`.card[data-id="${id}"] .favorite-icon`)
+ if(photo.favorite === true){
+   favoriteIcon.style.backgroundImage = 'url(Images/favorite-active.svg)'
+ } else{
+   favoriteIcon.style.backgroundImage = 'url(Images/favorite.svg)'
+
+ }
+}
+
+function viewFavorites(event){
+  var favoritesArray = photosArray.filter(function(photo){
+    return photo.favorite === true;
+  })
+  document.querySelector('.card-container').innerHTML ='';
+  favoritesArray.forEach(function(photo){
+    addToPage(photo);
+    changeOfHeart(photo);
+  });
+
+  event.target.classList.replace('view-favorites-btn','show-all-btn');
+  event.target.innerHTML = "Show All";
+}
+
+function showAll(event){
+  document.querySelector('.card-container').innerHTML ='';
+  photosArray.forEach(function(photo){
+    addToPage(photo);
+    changeOfHeart(photo);
+  });
+  event.target.classList.replace('show-all-btn','view-favorites-btn')  
+  event.target.innerHTML = "View Favorites";
+  favoriteCounter();
+
+}
+
+function showTen(){
+  document.querySelector('.card-container').innerHTML ='';
+  var lastTen = photosArray.filter(function(photo,index){
+   return index >= photosArray.length-10 
+ })
+  lastTen.forEach(function(photo){
+    addToPage(photo);
+    changeOfHeart(photo);
+  });
+}
+
+
+function toggleMoreLess(){
+
+   if (event.target.classList.contains('show-more')){
+      document.querySelector('.card-container').innerHTML ='';
+  photosArray.forEach(function(photo){
+    addToPage(photo);
+    changeOfHeart(photo);
+  });
+  event.target.classList.replace('show-more','show-less')  
+  event.target.innerHTML = "Show Less";
+} 
+else{
+   showTen()
+    event.target.classList.replace('show-less','show-more')  
+    event.target.innerHTML = "Show More";
+  }
+} 
+
+function favsOrAll(event){
+  if (event.target.classList.contains('view-favorites-btn')){
+    viewFavorites(event);
+  }else if (event.target.classList.contains('show-all-btn')){
+    showAll(event);
+  }
+}
 
 
 function searchCards(event){
@@ -111,9 +202,7 @@ function searchCards(event){
   cardInfo.forEach(function(elem){
     if(!elem.innerText.includes(event.target.value)){
       elem.closest('.card').remove();
-
     };
-
   })
 }
 
@@ -123,11 +212,18 @@ function loadFromLocal(){
   photosArray = photosArray.map(function(photo){
     return photo = new Photo(photo.id,photo.file,photo.title,photo.caption,photo.favorite);
   })
-  photosArray.forEach(function(photo){
-    addToPage(photo);
-  })
+  showTen();
+  favoriteCounter();
 }
 
+function favoriteCounter(){
+    var favoritesArray = photosArray.filter(function(photo){
+    return photo.favorite === true;
+  })
+    if(showFavsOrAll.innerText !== 'Show All'){
+    favoriteButton.innerHTML = `View ${favoritesArray.length} Favorites`;
+    }
+  }
 
 
 

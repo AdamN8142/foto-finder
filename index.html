@@ -2,13 +2,14 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <title></title>
 <body>
   <section class = 'top-half'>
     <div class = 'header'>
       <h1 class = 'foto-finder-header'>FOTO<img src="Images/foto-finder-logo.svg" class = 'foto-finder-logo'>FINDER</h1>
-      <input class = 'search-bar' placeholder = 'Search 'type="search" name="">
+      <input class = 'search-bar' placeholder = 'Search 'type="text" name="">
     </div>
     <section class = 'main-content'>
       <form class = 'search-forms'>
@@ -19,10 +20,10 @@
       </form>
       <section class = 'all-top-btns'>
         <div>
-          <input type="file" class = 'choose-file-btn' name="choose-file">
+          <input type="file" class = 'choose-file-btn' accept = 'image/* 'name="choose-file">
         </div>
-        <button class = 'view-favorites-btn'>View Favorites</button>
-        <button class = 'add-to-album-btn'>Add to Album</button>
+        <button   class = 'view-favorites-btn toggle-button'>View Favorites</button>
+        <button   class = 'add-to-album-btn'>Add to Album</button>
       </section>
     </section>
   </section>
@@ -40,6 +41,9 @@
         </section>
       </article> -->
     </section>
+    <div class = 'bottom-button'>
+      <button class = "more-less-toggle show-more">Show More</button>
+    </div>
   </section>
   <script type="text/javascript" src = "photo.js"></script>
   <script type="text/javascript" src = "main.js"></script>
