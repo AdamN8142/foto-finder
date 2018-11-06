@@ -9,9 +9,10 @@ class Photo {
 
   }
 
-    updatePhoto(title, caption, photosArray, index) {
+    updatePhoto(title, caption, photosArray, index,favorite) {
     this.title = title;
     this.caption = caption;
+    this.favorite = favorite;
     photosArray.splice(index, 1, this)
     this.saveToStorage(photosArray);
   }
