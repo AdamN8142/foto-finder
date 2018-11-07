@@ -25,7 +25,7 @@ window.onload = function(){
   if(localStorage.getItem('allPhotos')!==null){
     loadFromLocal();
   }
-  addToAlbumButton.disabled = true;
+    addToAlbumButton.disabled = true;
 }
 
 function enableButtons(){
@@ -50,7 +50,6 @@ function createNewCard(event){
     addToPage(photo);
   }
   clearInputs();
-  addToAlbumButton.disabled = true;
 }
 
 function clearInputs(){
@@ -64,8 +63,7 @@ function addToPage(photo){
   cardContent.dataset.id =`${photo.id}`
   cardContent.classList.add('card')
   cardContent.innerHTML =  
-  `
-  <h3 class = 'card-title card-info'contenteditable = true>${photo.title}</h3>
+  `<h3 class = 'card-title card-info'contenteditable = true>${photo.title}</h3>
   <img src = '${photo.file}' class = 'image'>
   <p class = 'card-text card-info' contenteditable = true>${photo.caption}</p>
   <section class = 'bottom-of-card'>
@@ -73,8 +71,7 @@ function addToPage(photo){
   <button class = 'delete-icon icon'></button>
   <button class = 'favorite-icon icon'></button>
   </div> 
-  </section>
-  `;
+  </section>`;
   cardContainer.prepend(cardContent);
 }
 
@@ -166,27 +163,27 @@ function showTen(){
 }
 
 function toggleMoreLess(){
- if (event.target.classList.contains('show-more')){
-  document.querySelector('.card-container').innerHTML ='';
-  photosArray.forEach(function(photo){
-    addToPage(photo);
-    changeOfHeart(photo);
-  });
-  event.target.classList.replace('show-more','show-less')  
-  event.target.innerHTML = "Show Less";} 
-else{
- showTen()
- event.target.classList.replace('show-less','show-more')  
- event.target.innerHTML = "Show More";}} 
+  if(event.target.classList.contains('show-more')){
+    document.querySelector('.card-container').innerHTML ='';
+    photosArray.forEach(function(photo){
+      addToPage(photo);
+      changeOfHeart(photo);
+    });
+    event.target.classList.replace('show-more','show-less')  
+    event.target.innerHTML = "Show Less";} 
+  else {
+   showTen()
+   event.target.classList.replace('show-less','show-more')  
+   event.target.innerHTML = "Show More";}} 
 
-function favsOrAll(event){
-  event.preventDefault();
-  if (event.target.classList.contains('view-favorites-btn')){
-    viewFavorites(event);
-  }else if (event.target.classList.contains('show-all-btn')){
-    showAll(event);
+  function favsOrAll(event){
+    event.preventDefault();
+    if (event.target.classList.contains('view-favorites-btn')){
+      viewFavorites(event);
+    }else if (event.target.classList.contains('show-all-btn')){
+      showAll(event);
+    }
   }
-}
 
 function searchCards(event){
   document.querySelector('.card-container').innerHTML ='';
