@@ -24,8 +24,8 @@ var photosArray = [];
 window.onload = function(){
   if(localStorage.getItem('allPhotos')!==null){
     loadFromLocal();
-    addToAlbumButton.disabled = true;
   }
+  addToAlbumButton.disabled = true;
 }
 
 function enableButtons(){
@@ -50,6 +50,7 @@ function createNewCard(event){
     addToPage(photo);
   }
   clearInputs();
+  addToAlbumButton.disabled = true;
 }
 
 function clearInputs(){
@@ -107,10 +108,8 @@ function removeCard(){
 
 function editFavorite(event){
   if(event.target.classList.contains('favorite-icon')){
-    console.log(event)
     var selectedCard = event.target.closest('.card');
     var selectedCardId = selectedCard.dataset.id;
-    console.log(selectedCardId);
     var index = photosArray.findIndex(function(desiredCard){
       return desiredCard.id == selectedCardId;
     });
@@ -174,14 +173,11 @@ function toggleMoreLess(){
     changeOfHeart(photo);
   });
   event.target.classList.replace('show-more','show-less')  
-  event.target.innerHTML = "Show Less";
-  } 
+  event.target.innerHTML = "Show Less";} 
 else{
  showTen()
  event.target.classList.replace('show-less','show-more')  
- event.target.innerHTML = "Show More";
-  }
-} 
+ event.target.innerHTML = "Show More";}} 
 
 function favsOrAll(event){
   event.preventDefault();
