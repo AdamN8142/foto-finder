@@ -6,7 +6,6 @@ class Photo {
     this.title = title;
     this.caption = caption;
     this.favorite = favorite || false
-
   }
 
     updatePhoto(title, caption, photosArray, index,favorite) {

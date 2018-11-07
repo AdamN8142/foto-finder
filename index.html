@@ -1,56 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <title>Foto-Finder</title>
 <body>
-  <section class = 'top-half'>
-    <div class = 'header-and-space'>
-    <div class = 'header'>
-      <h1 class = 'foto-finder-header'>FOTO</h1>
-        <img src="Images/foto-finder-logo.svg" class = 'foto-finder-logo'>
-        <h1 class = 'finder-header'>FINDER</h1>
-      </div>
-      <div class = 'search-and-icon'>
-      <input class = 'search-bar' placeholder = 'Search 'type="text" name="">
-      <i class=" search-icon fas fa-search"></i>
-      </div>
-   </div>
-    <form class = 'form-content'>
-        <label for= "title-input">Title</label>
-        <input class = 'title-input' type="text">
-        <label for= "caption-input">Caption</label>
-        <input class = 'caption-input' type="text">
-        <input type= "file" class = 'input-file choose-file-btn' id='file' accept = 'image/* 'name="choose-file">
-        <label for = "file">Choose File</label>
-      <div class = 'favorites-and-add'>
-        <button class = 'view-favorites-btn toggle-button'>View Favorites</button>
-        <button class = 'add-to-album-btn'>Add to Album</button>
-      </div>
-    </form>
-  </section>
-  <section class = 'lower-half'>
-    <section class = 'card-container'>
-  <!--     <article class = 'card'>
-        <h3 class = 'card-title'>Waterfall Image</h3>
-        <div class = 'card-pic image'></div>
-        <p class = 'card-text'>This is the text for the pictures that will be uploaded</p>
-        <section class = 'bottom-of-card'>
-          <div class = 'icon-section'>
-            <img class = 'delete-icon icon'src="Images/delete.svg">
-            <img class = 'favorite-icon icon'src="Images/favorite.svg">
-          </div> 
-        </section>
-      </article> -->
-    </section>
-    <div class = 'bottom-button'>
-      <button class = "more-less-toggle show-more">Show More</button>
+<section class = 'top-half'>
+  <div class = 'header-and-space'>
+  <div class = 'header'>
+    <h1 class = 'foto-finder-header'>FOTO</h1>
+      <img src="Images/foto-finder-logo.svg" class = 'foto-finder-logo'>
+      <h1 class = 'finder-header'>FINDER</h1>
     </div>
+    <div class = 'search-and-icon'>
+    <input class = 'search-bar' placeholder = 'Search 'type="text" name="">
+    <i class=" search-icon fas fa-search"></i>
+    </div>
+ </div>
+  <form class = 'form-content'>
+      <label for= "title-input">Title</label>
+      <input class = 'title-input' type="text">
+      <label for= "caption-input">Caption</label>
+      <input class = 'caption-input' type="text">
+      <input type= "file" class = 'input-file choose-file-btn' id='file' accept = 'image/* 'name="choose-file">
+      <label for = "file">Choose File</label>
+    <div class = 'favorites-and-add'>
+      <button class = 'view-favorites-btn toggle-button'>View Favorites</button>
+      <button class = 'add-to-album-btn'>Add to Album</button>
+    </div>
+  </form>
+</section>
+<section class = 'lower-half'>
+  <section class = 'card-container'>
   </section>
-  <script type="text/javascript" src = "photo.js"></script>
-  <script type="text/javascript" src = "main.js"></script>
+  <div class = 'bottom-button'>
+    <button class = "more-less-toggle show-more">Show More</button>
+  </div>
+</section>
+<script type="text/javascript" src = "photo.js"></script>
+<script type="text/javascript" src = "main.js"></script>
 </body>
 </html>
