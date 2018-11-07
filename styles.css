@@ -2,7 +2,10 @@
   margin:0;
   padding: 0;
   box-sizing: border-box;
+}
 
+body{
+  background-color: #C2B2B4;
 }
 
 .top-half {
@@ -11,7 +14,8 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 }
 
 .foto-finder-header {
@@ -21,9 +25,21 @@
   font-size: 2.5rem;
 }
 
+.header-and-space{
+  display: flex;
+  justify-content: space-between;
+}
+
+.finder-header{
+  color: white;
+  font-family: sans-serif;
+  font-size: 2.5rem;
+}
+
 .favorites-and-add{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 25px;
 }
 
 .top-half {
@@ -31,42 +47,46 @@
 }
 
 .form-content{
-  display: flex;
-  flex-direction: column;
-  width: 68%;
-  margin:auto;
-
+ display: flex;
+ flex-direction: column;
+ width: 68%;
+ margin:auto;
+ margin-top: 11px;
 }
 
 .foto-finder-logo{
  height:40px;
  width: 40px;
- }
+}
 
+.toggle-button  {
+ width: 35%;
+ height:35px;
+ color: white;
+ background-color: #5B4447;
+ border-style: none;
+ font-size: 15px;
+}
 
- .toggle-button  {
-  width: 20%;
-  height:35px;
-  color: white;
-  background-color: #5B4447;
-  border-style: none;
-  font-size: 15px;
- }
+.toggle-button:hover{
+  background-color: #938284;
+}
 
-
-
- .add-to-album-btn {
-  width: 20%;
+.add-to-album-btn {
+  width: 35%;
   height:35px;
   font-size: 15px;
   background-color: #5B4447;
   color:white;
   border-style: none;
- }
+}
+
+.add-to-album-btn:hover{
+  background-color: #938284;
+}
 
 .lower-half {
   background-color: #C2B2B4;
-  height: 100vh;
 }
 
 .card-text{
@@ -75,6 +95,12 @@
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: white;
+  height: 80px;
+}
+
+.card-info {
+  overflow: scroll;
+  max-height: 80px;
 }
 
 .card-title {
@@ -87,11 +113,10 @@
 .card {
   background-color: white;
   width: 300px;
-  height: 100%;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  height: auto;
+  margin: 20px auto;
+  box-shadow: 2px 0 2px #bababa, -0.4em 0 0.4em #bababa;
+
 }
 
 .title-caption-text {
@@ -100,18 +125,14 @@
 }
 
 .card-container {
-  padding-top: 40px;
-  display: flex;
-  flex:1 1 auto;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .image {
   display: flex;
   justify-content: space-between;
-  height: 100%;
+  height: 175px;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -126,6 +147,10 @@
   display: flex;
   justify-content: space-between;
   height: 55px;
+}
+
+.search-and-icon {
+  margin-right: 20px;
 }
 
 .delete-icon {
@@ -150,15 +175,18 @@
 
 .search-bar {
   margin-top: 10px;
-  margin-right: 10px;
-  width: 20%;
   height: 30px;
-  border-radius: 10px;
   font-size: 15px;
+  border-radius: 10px 0px 0px 10px;
+  padding-left: 6px;
 }
 
 .caption-input,.title-input {
   height: 38px;
+}
+
+.caption-input {
+  margin-bottom: 30px;
 }
 
 .input-file{
@@ -171,26 +199,103 @@
 }
 
 .input-file + label {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   height:38px; 
   color: white;
   background-color: #5B4447; 
   text-align: center; 
+  padding-top: 10px;
+  font-family: sans-serif;
 }
 
+.search-icon{
+  background-color: #C2B2B4;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  margin-left: -5px;
+  border-radius: 0px 10px 10px 0px;
+}
+
+label{
+  color: grey;
+  font-family: sans-serif;
+  margin-top: 15px;
+}
+
+.input-file + label:hover{
+  background-color: #938284
+}
 
 .more-less-toggle {
   width: 20%;
   height:35px;
   color: white;
+  margin-top: 25px;
   background-color: #5B4447;
   border-style: none;
   font-size: 15px;
 }
 
+.more-less-toggle:hover{
+  background-color: #938284
+}
+
 .bottom-button{
   text-align: center;
 }
+
+@media screen and (max-width:1358px){
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width:1031px){
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin:auto 10px;
+  }
+}
+
+@media screen and (max-width:707px){
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin:auto 10px;
+  }
+}
+
+@media screen and (max-width:608px){
+  .header-and-space {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width:350px){
+
+.foto-finder-header {
+   
+    margin-left: 10px;
+    
+}
+
+
+
+
+}
+
+
+
+
 
 
 
