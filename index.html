@@ -3,24 +3,32 @@
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<title></title>
+<title>Foto-Finder</title>
 <body>
   <section class = 'top-half'>
+    <div class = 'header-and-space'>
     <div class = 'header'>
-      <h1 class = 'foto-finder-header'>FOTO<img src="Images/foto-finder-logo.svg" class = 'foto-finder-logo'>FINDER</h1>
+      <h1 class = 'foto-finder-header'>FOTO</h1>
+        <img src="Images/foto-finder-logo.svg" class = 'foto-finder-logo'>
+        <h1 class = 'finder-header'>FINDER</h1>
+      </div>
+      <div class = 'search-and-icon'>
       <input class = 'search-bar' placeholder = 'Search 'type="text" name="">
-    </div>
+      <i class=" search-icon fas fa-search"></i>
+      </div>
+   </div>
     <form class = 'form-content'>
         <label for= "title-input">Title</label>
         <input class = 'title-input' type="text">
         <label for= "caption-input">Caption</label>
         <input class = 'caption-input' type="text">
-          <input type="file" class = 'input-file' accept = 'image/* 'name="choose-file">
-          <label for ='file'>Choose File</label>
+        <input type= "file" class = 'input-file choose-file-btn' id='file' accept = 'image/* 'name="choose-file">
+        <label for = "file">Choose File</label>
       <div class = 'favorites-and-add'>
-        <button   class = 'view-favorites-btn toggle-button'>View Favorites</button>
-        <button   class = 'add-to-album-btn'>Add to Album</button>
+        <button class = 'view-favorites-btn toggle-button'>View Favorites</button>
+        <button class = 'add-to-album-btn'>Add to Album</button>
       </div>
     </form>
   </section>
