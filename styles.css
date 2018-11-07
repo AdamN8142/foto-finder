@@ -25,18 +25,18 @@ body{
   font-size: 2.5rem;
 }
 
-.header-and-space{
+.header-and-space {
   display: flex;
   justify-content: space-between;
 }
 
-.finder-header{
+.finder-header {
   color: white;
   font-family: sans-serif;
   font-size: 2.5rem;
 }
 
-.favorites-and-add{
+.favorites-and-add {
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
@@ -46,7 +46,7 @@ body{
   width: 100%;
 }
 
-.form-content{
+.form-content {
  display: flex;
  flex-direction: column;
  width: 68%;
@@ -54,12 +54,12 @@ body{
  margin-top: 11px;
 }
 
-.foto-finder-logo{
+.foto-finder-logo {
  height:40px;
  width: 40px;
 }
 
-.toggle-button  {
+.toggle-button {
  width: 35%;
  height:35px;
  color: white;
@@ -68,8 +68,12 @@ body{
  font-size: 15px;
 }
 
-.toggle-button:hover{
+.toggle-button:hover {
   background-color: #938284;
+}
+
+.add-to-album-btn:disabled {
+  opacity: .5;
 }
 
 .add-to-album-btn {
@@ -81,7 +85,7 @@ body{
   border-style: none;
 }
 
-.add-to-album-btn:hover{
+.add-to-album-btn:hover {
   background-color: #938284;
 }
 
@@ -89,7 +93,7 @@ body{
   background-color: #C2B2B4;
 }
 
-.card-text{
+.card-text {
   font-size: 1.3rem;
   padding-left: 17px;
   padding-top: 10px;
@@ -224,7 +228,7 @@ label{
 }
 
 .input-file + label:hover{
-  background-color: #938284
+  background-color: #938284;
 }
 
 .more-less-toggle {
@@ -272,25 +276,20 @@ label{
 }
 
 @media screen and (max-width:608px){
-  .header-and-space {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    text-align: center;
+.header-and-space {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
   }
 }
 
 @media screen and (max-width:350px){
 
 .foto-finder-header {
-   
-    margin-left: 10px;
+  margin-left: 10px;
     
-}
-
-
-
-
+  }
 }
 
 

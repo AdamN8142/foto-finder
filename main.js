@@ -37,7 +37,7 @@ function enableButtons(){
 }
 
 function createNewCard(event){
-  event.preventDefault()
+  event.preventDefault();
   var reader = new FileReader();
   var file = chooseFileBtn.files[0];
   var title = titleInput.value;
@@ -113,7 +113,6 @@ function editFavorite(event){
     console.log(selectedCardId);
     var index = photosArray.findIndex(function(desiredCard){
       return desiredCard.id == selectedCardId;
-      //desired card is just a name i gave to the function
     });
     photosArray[index].updatePhoto(photosArray[index].title, photosArray[index].caption,
       photosArray, index, !photosArray[index].favorite);
@@ -148,13 +147,12 @@ function viewFavorites(event){
 function showAll(event){
   document.querySelector('.card-container').innerHTML ='';
   photosArray.forEach(function(photo){
-    addToPage(photo);
-    changeOfHeart(photo);
+    addToPage(photo)
+    changeOfHeart(photo)
   });
   event.target.classList.replace('show-all-btn','view-favorites-btn')  
   event.target.innerHTML = "View Favorites";
   favoriteCounter();
-
 }
 
 function showTen(){
@@ -219,7 +217,7 @@ function loadFromLocal(){
 function favoriteCounter(){
   var favoritesArray = photosArray.filter(function(photo){
     return photo.favorite === true;
-  })
+  });
   if(showFavsOrAll.innerText !== 'Show All'){
     favoriteButton.innerHTML = `View ${favoritesArray.length} Favorites`;
   }
