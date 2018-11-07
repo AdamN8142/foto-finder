@@ -20,7 +20,7 @@ class Photo {
     if(isNewCard===true){
       photosArray.push(this)
     } 
-    localStorage.setItem('allPhotos',JSON.stringify(photosArray))
+    localStorage.setItem('allPhotos',JSON.stringify(photosArray));
   }
 
 

@@ -1,7 +1,7 @@
 *{
+  box-sizing: border-box;
   margin:0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body{
@@ -13,16 +13,16 @@ body{
 }
 
 .header {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
 }
 
 .foto-finder-header {
   color: white;
   font-family: sans-serif;
-  margin-left: 21px;
   font-size: 2.5rem;
+  margin-left: 21px;
 }
 
 .header-and-space {
@@ -47,25 +47,25 @@ body{
 }
 
 .form-content {
- display: flex;
- flex-direction: column;
- width: 68%;
- margin:auto;
- margin-top: 11px;
+  display: flex;
+  flex-direction: column;
+  margin:auto;
+  margin-top: 11px;
+  width: 68%;
 }
 
 .foto-finder-logo {
- height:40px;
- width: 40px;
-}
+  height:40px;
+  width: 40px;
+} 
 
 .toggle-button {
- width: 35%;
- height:35px;
- color: white;
- background-color: #5B4447;
- border-style: none;
- font-size: 15px;
+  background-color: #5B4447;
+  border-style: none;
+  color: white;
+  font-size: 15px;
+  height:35px;
+  width: 35%;
 }
 
 .toggle-button:hover {
@@ -73,16 +73,16 @@ body{
 }
 
 .add-to-album-btn:disabled {
-  opacity: .5;
+  opacity: .3;
 }
 
 .add-to-album-btn {
-  width: 35%;
-  height:35px;
-  font-size: 15px;
   background-color: #5B4447;
-  color:white;
   border-style: none;
+  color:white;
+  font-size: 15px;
+  height:35px;
+  width: 35%;
 }
 
 .add-to-album-btn:hover {
@@ -94,32 +94,35 @@ body{
 }
 
 .card-text {
+  background-color: white;
+  font-family: sans-serif;
   font-size: 1.3rem;
+  height: 80px;
+  padding-bottom: 10px;
   padding-left: 17px;
   padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  height: 80px;
 }
 
 .card-info {
-  overflow: scroll;
   max-height: 80px;
+  overflow: scroll;
 }
 
 .card-title {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  padding-bottom: 10px;
   padding-left: 17px;
   padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 1.5rem;
 }
 
 .card {
   background-color: white;
-  width: 300px;
+  box-shadow: 2px 0 2px #bababa, -0.4em 0 0.4em #bababa;
   height: auto;
   margin: 20px auto;
-  box-shadow: 2px 0 2px #bababa, -0.4em 0 0.4em #bababa;
+  width: 300px;
+  border: solid 1px grey;
 
 }
 
@@ -134,12 +137,12 @@ body{
 }
 
 .image {
-  display: flex;
-  justify-content: space-between;
-  height: 175px;
-  width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  height: 175px;
+  justify-content: space-between;
+  width: 100%;
 }
 .icon {
   height: 35px;
@@ -149,8 +152,8 @@ body{
 .icon-section {
   background-color: #3E2A35;
   display: flex;
-  justify-content: space-between;
   height: 55px;
+  justify-content: space-between;
 }
 
 .search-and-icon {
@@ -158,35 +161,37 @@ body{
 }
 
 .delete-icon {
+  background-color: #3E2A35;
   background-image:url(Images/delete.svg);
   background-repeat: no-repeat;
   border-style: none;
   margin-left: 10px;
   margin-top: 9px;
-  background-color: #3E2A35;
   outline: 0;
 }
 
 .favorite-icon {
+  background-color: #3E2A35;
   background-image:url(Images/favorite.svg);
+  background-repeat: no-repeat;
   border-style: none;
   margin-right: 10px;
   margin-top: 9px;
-  background-repeat: no-repeat;
-  background-color: #3E2A35;
   outline: 0;
 }
 
 .search-bar {
-  margin-top: 10px;
-  height: 30px;
-  font-size: 15px;
   border-radius: 10px 0px 0px 10px;
+  font-size: 15px;
+  height: 30px;
+  margin-top: 10px;
   padding-left: 6px;
 }
 
 .caption-input,.title-input {
+  font-size: 15px;
   height: 38px;
+  padding-left: 5px;
 }
 
 .caption-input {
@@ -194,31 +199,31 @@ body{
 }
 
 .input-file{
-  width: 0.1px;
   height: 0.1px;
   opacity: 0;
   overflow: hidden;
   position: absolute;
+  width: 0.1px;
   z-index: -1;
 }
 
 .input-file + label {
-  margin-bottom: 30px;
-  height:38px; 
-  color: white;
   background-color: #5B4447; 
-  text-align: center; 
-  padding-top: 10px;
+  color: white;
   font-family: sans-serif;
+  height:38px; 
+  margin-bottom: 30px;
+  padding-top: 10px;
+  text-align: center; 
 }
 
 .search-icon{
   background-color: #C2B2B4;
-  width: 30px;
-  height: 30px;
-  padding: 7px;
-  margin-left: -5px;
   border-radius: 0px 10px 10px 0px;
+  height: 30px;
+  margin-left: -5px;
+  padding: 7px;
+  width: 30px;
 }
 
 label{
@@ -232,13 +237,13 @@ label{
 }
 
 .more-less-toggle {
-  width: 20%;
-  height:35px;
-  color: white;
-  margin-top: 25px;
   background-color: #5B4447;
   border-style: none;
+  color: white;
   font-size: 15px;
+  height:35px;
+  margin-top: 25px;
+  width: 20%;
 }
 
 .more-less-toggle:hover{
@@ -278,8 +283,8 @@ label{
 @media screen and (max-width:608px){
 .header-and-space {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  justify-content: space-between;
   text-align: center;
   }
 }
